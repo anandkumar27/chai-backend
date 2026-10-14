@@ -20,8 +20,9 @@ const uploadOnCloudinary = async (localFilePath) => {
             resource_type: "auto"
         })
         // file has been uploaded successfull
-        console.log("File is upload on cloudinary",
-            response.url);
+        // console.log("File is upload on cloudinary",
+        //    response.url);
+        fs.unlinkSync(localFilePath)
             return response;
         
     } catch (error) {
@@ -30,7 +31,9 @@ const uploadOnCloudinary = async (localFilePath) => {
     }
 }
 
+export {uploadOnCloudinary}
 
-cloudinary.v2.uploader.upload("https://res.cloudinary.com/xolx3q2m/image/upload/v1791459039/lovelu_pesty.jpg",{public_id: "xolx3q2m"},
-    function(error, result) {console.log(result);
-    })
+
+// cloudinary.v2.uploader.upload("https://res.cloudinary.com/xolx3q2m/image/upload/v1791459039/lovelu_pesty.jpg",{public_id: "xolx3q2m"},
+//     function(error, result) {console.log(result);
+//     })
